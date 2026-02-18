@@ -1,0 +1,28 @@
+// antiExecutor.js
+function isExecutorDetected(player) {
+// Example detection logic: Check for common executor signatures
+const executorSignatures = [
+"Synapse X",
+"JJSploit",
+"Krilo",
+"ScriptWare",
+"Fluxus"
+"Xeno"
+
+];
+
+for (const sig of executorSignatures) {
+if (player.UserId.toString().includes(sig)) {
+return true;
+}
+}
+return false;
+}
+
+function onPlayerAdded(player) {
+if (isExecutorDetected(player)) {
+player:Kick("Executor detected. Cheating is not allowed.");
+}
+}
+
+game.Players.PlayerAdded:Connect(onPlayerAdded);
